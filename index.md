@@ -7,33 +7,13 @@
 <style>@media screen and (max-device-width:480px){body{-webkit-text-size-adjust:none}}</style> 
 
 <script> 
-var agent = navigator.userAgent; 
-var isWebkit = (agent.indexOf("AppleWebKit") > 0); 
-var isIPad = (agent.indexOf("iPad") > 0); 
-var isIOS = (agent.indexOf("iPhone") > 0 || agent.indexOf("iPod") > 0); 
-var isAndroid = (agent.indexOf("Android") > 0); 
-var isNewBlackBerry = (agent.indexOf("AppleWebKit") > 0 && agent.indexOf("BlackBerry") > 0); 
-var isWebOS = (agent.indexOf("webOS") > 0); 
-var isWindowsMobile = (agent.indexOf("IEMobile") > 0); 
-var isSmallScreen = (screen.width < 767 || (isAndroid && screen.width < 1000)); 
-var isUnknownMobile = (isWebkit && isSmallScreen); 
-var isMobile = (isIOS || isAndroid || isNewBlackBerry || isWebOS || isWindowsMobile || isUnknownMobile); 
-var isTablet = (isIPad || (isMobile && !isSmallScreen)); 
-
-window.onload = function() { 
-<!-- Deep link URL for existing users with app already installed on their device --> 
-var url_string = window.location.href; 
-var url = new URL(url_string); 
-var record_id = url.searchParams.get("scanned_data"); 
-if ( isMobile){ 
-window.location = 'salesforce1://sObject/'+record_id+'/view'; 
-} 
-//else{ 
-// window.location = 'https://coxauto--ssgph.lightning.force.com/one/one.app?source=aloha#/n/Trade_Show_Demo'; 
-// } 
-
-} 
-
+    window.onload = function() { 
+        //<!-- Deep link URL for existing users with app already installed on their device --> 
+        var url_string = window.location.href; 
+        var url = new URL(url_string); 
+        var record_id = url.searchParams.get("SCANNED_DATA"); 
+        window.location = 'salesforce1://sObject/'+record_id+'/view';
+    }
 </script> 
 </head> 
 <body> 
