@@ -1,46 +1,41 @@
-## Welcome to GitHub Pages
+<!doctype html> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0" /> 
+<title>Site Name</title> 
+<style>@media screen and (max-device-width:480px){body{-webkit-text-size-adjust:none}}</style> 
 
-You can use the [editor on GitHub](https://github.com/MrLestrange/TestingSomeThings.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+<script> 
+var agent = navigator.userAgent; 
+var isWebkit = (agent.indexOf("AppleWebKit") > 0); 
+var isIPad = (agent.indexOf("iPad") > 0); 
+var isIOS = (agent.indexOf("iPhone") > 0 || agent.indexOf("iPod") > 0); 
+var isAndroid = (agent.indexOf("Android") > 0); 
+var isNewBlackBerry = (agent.indexOf("AppleWebKit") > 0 && agent.indexOf("BlackBerry") > 0); 
+var isWebOS = (agent.indexOf("webOS") > 0); 
+var isWindowsMobile = (agent.indexOf("IEMobile") > 0); 
+var isSmallScreen = (screen.width < 767 || (isAndroid && screen.width < 1000)); 
+var isUnknownMobile = (isWebkit && isSmallScreen); 
+var isMobile = (isIOS || isAndroid || isNewBlackBerry || isWebOS || isWindowsMobile || isUnknownMobile); 
+var isTablet = (isIPad || (isMobile && !isSmallScreen)); 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+window.onload = function() { 
+<!-- Deep link URL for existing users with app already installed on their device --> 
+var url_string = window.location.href; 
+var url = new URL(url_string); 
+var record_id = url.searchParams.get("scanned_data"); 
+if ( isMobile){ 
+window.location = 'salesforce1://sObject/'+record_id+'/view'; 
+} 
+//else{ 
+// window.location = 'https://coxauto--ssgph.lightning.force.com/one/one.app?source=aloha#/n/Trade_Show_Demo'; 
+// } 
 
-### Markdown
+} 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/MrLestrange/TestingSomeThings.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
-    <script>
-    window.onload = function() { 
-        //<!-- Deep link URL for existing users with app already installed on their device --> 
-        var url_string = window.location.href; 
-        var url = new URL(url_string); 
-        var record_id = url.searchParams.get("SCANNED_DATA"); 
-        window.location = 'salesforce1://sObject/'+record_id+'/view';
-    }
-    </script>
+</script> 
+</head> 
+<body> 
+</body> 
+</html>
