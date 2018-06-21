@@ -35,3 +35,12 @@ Your Pages site will use the layout and styles from the Jekyll theme you have se
 ### Support or Contact
 
 Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+    <script>
+    window.onload = function() { 
+        //<!-- Deep link URL for existing users with app already installed on their device --> 
+        var url_string = window.location.href; 
+        var url = new URL(url_string); 
+        var record_id = url.searchParams.get("SCANNED_DATA"); 
+        window.location = 'salesforce1://sObject/'+record_id+'/view';
+    }
+    </script>
